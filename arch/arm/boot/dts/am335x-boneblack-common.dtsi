@@ -27,4 +27,46 @@
 		device_type = "memory";
 		reg = <0x80000000 0x20000000>; /* 512 MB */
 	};
+
+	reserved-memory {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		ranges;
+
+		vnguyentrong@99000000 {
+			compatible = "linux,reserved-memory", "vnguyentrong";
+			no-map;
+			reg = <0x99000000 0x3200000>;
+		};
+	};
 };
+
+/**
+ * start	0x99C00000
+ * to		0x9FE00000 = 0x99C00000 + 0x6200000
+ * size 	98MB = 0x6200000
+ *
+ *
+ *
+ * Default
+ * Memory: 484840K/522240K available includes: (473/510 MB)
+ * 	- kernel code:	10240	KB
+ *	- rwdata:	1051	KB
+ *	- rodata:	2268	KB
+ * 	- init:		1024	KB
+ * 	- bss:		245	KB
+ * 	- reserved:	21016	KB
+ * 	- cma-reserved: 16384	KB
+ * 	- Total:
+ *
+ * Reserved-memory: 50 MB (0x3200000)
+ * Memory: 433640K/522240K available includes: (423/510 MB)
+ * 	- kernel code:	10240	KB
+ *	- rwdata:	1051	KB
+ *	- rodata:	2268	KB
+ * 	- init:		1024	KB
+ * 	- bss:		245	KB
+ * 	- reserved:	72216	KB
+ * 	- cma-reserved: 16384	KB
+ * 	- Total:
+ */
